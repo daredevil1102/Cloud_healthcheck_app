@@ -1,0 +1,65 @@
+# AWS Education Platform - Development Environment Variables
+# Copy this file to terraform.tfvars and update with your actual values
+
+# AWS Configuration
+aws_account_id = "123456789012"  # Replace with your AWS Account ID
+aws_region     = "us-east-1"
+
+# Project Configuration
+project_name = "education-platform"
+environment  = "dev"
+cost_center  = "education-dev"
+owner        = "platform-team"
+
+# Networking Configuration
+vpc_cidr = "10.0.0.0/16"
+
+# Database Configuration
+db_name     = "education_platform_dev"
+db_username = "eduadmin"
+db_password = "YourSecurePassword123!"  # Change this to a secure password
+
+# Feature Flags
+enable_chat          = true
+enable_video         = true
+enable_attendance    = true
+enable_marks         = true
+enable_notifications = false  # Disabled by default for dev
+enable_security      = true
+enable_monitoring    = true
+
+# Development Settings
+enable_detailed_monitoring = false
+enable_debug_logging      = true
+log_retention_days        = 7
+
+# Security Configuration
+allowed_cidr_blocks = ["0.0.0.0/0"]  # Restrict this in production
+enable_bastion_host = false
+
+# Cost Optimization
+cost_optimization_enabled = true
+auto_stop_instances      = false
+use_spot_instances       = false
+
+# Backup Configuration
+backup_retention_days      = 1
+enable_deletion_protection = false
+
+# Development Tools
+enable_development_tools = true
+create_development_user  = false
+
+# Testing Configuration
+enable_test_data = true
+test_user_count  = 10
+
+# Performance Configuration
+performance_mode = "standard"
+
+# Additional Tags
+additional_tags = {
+  Environment = "development"
+  Purpose     = "education-platform-dev"
+  AutoStop    = "true"
+}

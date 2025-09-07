@@ -1,0 +1,58 @@
+{
+  "name": "aws-education-platform",
+  "version": "1.0.0",
+  "description": "A comprehensive education platform built on AWS featuring user authentication, real-time chat, video streaming, attendance tracking, and marks management",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "install:all": "npm run install:frontend && npm run install:lambda-functions && npm run install:backend",
+    "install:frontend": "cd applications/frontend && npm install",
+    "install:backend": "cd applications/backend-services/marks-api && npm install",
+    "install:lambda-functions": "find applications/lambda-functions -name package.json -execdir npm install \\;",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd applications/frontend && npm run build",
+    "deploy:dev": "cd terraform/environments/dev && terraform apply",
+    "deploy:staging": "cd terraform/environments/staging && terraform apply",
+    "deploy:prod": "cd terraform/environments/prod && terraform apply",
+    "terraform:init": "cd terraform/environments/dev && terraform init",
+    "terraform:plan": "cd terraform/environments/dev && terraform plan",
+    "terraform:apply": "cd terraform/environments/dev && terraform apply",
+    "terraform:destroy": "cd terraform/environments/dev && terraform destroy",
+    "setup:env": "./scripts/setup-environment.sh",
+    "install:deps": "./scripts/install-dependencies.sh",
+    "verify:deployment": "node scripts/verify-deployment.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/aws-education-platform.git"
+  },
+  "keywords": [
+    "aws",
+    "education",
+    "platform",
+    "react",
+    "terraform",
+    "lambda",
+    "cognito",
+    "dynamodb",
+    "s3",
+    "cloudfront",
+    "api-gateway",
+    "appsync",
+    "opensearch",
+    "rds",
+    "ec2",
+    "serverless"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "workspaces": [
+    "applications/frontend",
+    "applications/backend-services/*",
+    "applications/lambda-functions/*"
+  ]
+}
